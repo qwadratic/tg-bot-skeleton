@@ -2,11 +2,7 @@ import os
 import dotenv
 from peewee import SqliteDatabase, PostgresqlDatabase
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-dotenv.load_dotenv(
-    os.path.join(BASE_DIR, '.env')
-)
+dotenv.load_dotenv()
 
 IS_DEBUG = True if os.environ.get('DEBUG') == '1' else False
 
