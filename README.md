@@ -1,7 +1,9 @@
 Dependencies
 ============
 
-- pipenv
+```
+$ pip install pipenv
+```
 
 Setup
 =====
