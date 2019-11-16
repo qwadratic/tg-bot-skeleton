@@ -30,7 +30,10 @@ def fetch_url(url):
 
 
 start = time.time()
-threads = [ThreadWithReturnValue(target=fetch_url, args=(url,)) for url in urls]
+threads = []
+for url in urls:
+    threads.append(ThreadWithReturnValue(target=fetch_url, args=(url,)))
+
 results = []
 for thread in threads:
     thread.start()
