@@ -1,8 +1,10 @@
 import peeweedbevolve
-from telegram.ext import Updater
+from telegram.ext import Updater, CommandHandler
 
 from bot import MQBot
 from config import TG_TOKEN, DB, IS_DEBUG
+from handlers.sample import start
+from jobs.sample import broadcast_job
 from models import debug_create_tables
 
 
@@ -19,7 +21,10 @@ def bot_run():
     bot = MQBot(TG_TOKEN)
     updater = Updater(bot=bot, workers=4, use_context=True)
 
-    # TODO::CREATE add handlers and jobs
+    dp = updater.dispatcher
+    dp.add_handler(CommandHandler('start', start))
+
+    updater.job_queue.run_repeating(broadcast_job, interval=60, first=0)
 
     updater.start_polling(clean=True)
     updater.idle()

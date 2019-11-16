@@ -1,4 +1,4 @@
-from peewee import Model, CharField
+from peewee import Model, CharField, IntegerField
 
 from config import DB
 
@@ -9,6 +9,7 @@ class BaseModel(Model):
 
 
 class User(BaseModel):
+    tg_id = IntegerField()
     username = CharField()
 
 
