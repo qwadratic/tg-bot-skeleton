@@ -12,7 +12,7 @@ SQLITE_NAME = 'test.db'
 POSTGRES_CONFIG = {
     'host': 'localhost',
     'database': 'bot',
-    'user': 'bot'
+    'user': 'postgres'
 }
 DB = SqliteDatabase(SQLITE_NAME) if IS_DEBUG else PostgresqlDatabase(**POSTGRES_CONFIG)
 
