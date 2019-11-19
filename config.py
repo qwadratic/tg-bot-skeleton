@@ -19,5 +19,5 @@ DB = SqliteDatabase(SQLITE_NAME) if IS_DEBUG else PostgresqlDatabase(**POSTGRES_
 MINTER_NODE_API_URL = 'https://mnt.funfasy.dev/v0/'
 MINTER_NODE_API_HEADERS = {
     'X-Project-Id': 'af76c7ba-1631-4810-b677-79b4317324db',
-    'X-Project-Secret': '26d1c335118617e356534d037b45c81d'
+    'X-Project-Secret': os.environ.get('FUNFASY_PROJECT_SECRET')
 }
