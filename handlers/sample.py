@@ -1,4 +1,4 @@
-from telegram import Update
+from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import CallbackContext
 
 from models import User
@@ -12,4 +12,6 @@ def start(update: Update, ctx: CallbackContext):
         })
 
     msg = 'Hi, new user.' if is_created else 'Hi, old user.'
-    ctx.bot.send_message(u.tg_id, msg)
+    ctx.bot.send_message(u.tg_id, msg, reply_markup=ReplyKeyboardMarkup([
+        ['Main menu']
+    ]))

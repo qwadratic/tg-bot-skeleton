@@ -21,3 +21,7 @@ class MQBot(Bot):
     @mq.queuedmessage
     def send_photo(self, *args, **kwargs):
         return super(MQBot, self).send_photo(*args, **kwargs)
+
+    @mq.queuedmessage
+    def edit_message_reply_markup(self, *args, **kwargs):
+        return super(MQBot, self).edit_message_reply_markup(*args, **kwargs)
